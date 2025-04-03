@@ -29,25 +29,28 @@
 </nav>
 
 
-<header class="text-center py-5 bg-light text-dark">
+<header class="text-center py-5 text-dark my-5">
     <div class="container">
         <h1 class="fw-bold">Texture Powders</h1>
         <p class="lead">Profesionální stylingové pudry pro perfektní účes</p>
-        <a href="#about" class="btn btn-dark">O nás</a>
-        <a href="#products" class="btn btn-dark">Nabídka služeb</a>
+        <a href="#about" class="btn btn-dark btn-lg w-25">O nás</a>
+        <a href="#products" class="btn btn-dark btn-lg w-25">Nabídka služeb</a>
     </div>
 </header>
+
 
 
 <section id="about" class="py-1 bg-dark ">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h2 class="text-light">O nás</h2>
-                <p class="text-light">Jsme firma zaměřená na kvalitní vlasovou kosmetiku pro profesionální i domácí použití.</p>
+                <h2 class="text-light display-3">O nás</h2>
+                <p class="text-light">Jsme firma zaměřená na kvalitní vlasovou kosmetiku pro profesionální i domácí použití. Naším cílem je přinášet produkty, které vám pomohou dosáhnout dokonalého stylingu s minimální námahou.</p>
+                <p class="text-light">Nabízíme širokou škálu vlasových pudrů, které dodávají objem, texturu a dlouhotrvající fixaci bez slepení nebo zatížení vlasů. Díky našim zkušenostem a spolupráci s profesionálními kadeřníky neustále inovujeme naše produkty a přizpůsobujeme je nejnovějším trendům.</p>
+                <p class="text-light">Pokud hledáte kvalitní stylingové produkty, které skutečně fungují, jste na správném místě.</p>
             </div>
             <div class="col-md-6">
-                <img src="507-1_pacinos-texture-powder-pudr-na-vlasy-30g.webp" class="img-fluid rounded" alt="O nás">
+                <img src="sekceonasphotoshop.png" class="img-fluid rounded w-75" alt="O nás">
             </div>
         </div>
     </div>
@@ -109,7 +112,7 @@
 </section>
 
 
-<section class="bg-light py-5">
+<section class="bg-light pt-5 pb-2">
     <div class="container">
         <h2 class="text-center">Kontaktujte nás</h2>
         <form>
@@ -132,7 +135,41 @@
     </div>
 </section>
 
+<div class="container mb-5 ">
+<div class="text-center mt-5">
+    <h5>Jak jste spokojeni s našimi službami?</h5>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+        <button class="btn btn-outline-danger btn-lg" onclick="sendFeedback('danger', 'Omlouváme se za vaši negativní zkušenost.')">😡</button>
+        <button class="btn btn-outline-secondary btn-lg" onclick="sendFeedback('secondary', 'Děkujeme! Vaše zpětná vazba nám pomáhá se zlepšovat.')">😐</button>
+        <button class="btn btn-outline-success btn-lg" onclick="sendFeedback('success', 'Skvělé! Jsme rádi, že jste spokojeni! 😊')">😀</button>
+    </div>
+</div>
 
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="feedback-toast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="toast-message">
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendFeedback(color, message) {
+        let toastEl = document.getElementById("feedback-toast");
+        let toastBody = document.getElementById("toast-message");
+
+        toastBody.textContent = message;
+
+        toastEl.className = `toast align-items-center text-white bg-${color} border-0`;
+
+        let toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
+</script>
+</div>
 
 <footer class="text-center py-4 bg-dark text-light">
     <p>Vytvořil: Tobias Zicha</p>
